@@ -26,15 +26,16 @@ python3 manage.py createsuperuser
 - Run the app
 ```bash
 python3 manage.py runserver
-python3 tcp_client.py
-python3 tcp_server.py
 ```
 
 - Open the browser and go to http://localhost:8000/admin to add Events and Tickets
 
-- Send message to server like this:
-```text
-<Event name>, <User name>, <Ticket quantity>
+- Start daphne server
+```bash
+daphne -b 127.0.0.1 -p 8001 core.asgi:application
 ```
-- You can also send message to server like this:
-```text
+
+- Start the GUI
+```bash
+python3 ticket_gui/app.py
+```
